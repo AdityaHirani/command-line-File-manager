@@ -10,7 +10,7 @@ public class FileManager {
     public static void main(String[] args) {
         while(true) {
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter n to create new text file, i for all the information of that file, w to write sometihng to that file, r to read information from that file and bye to exit: ");
+            System.out.print("Enter n to create new text file, i for all the information of that file, w to write sometihng to that file, d to delete file, r to read information from that file and bye to exit: ");
             String input = scanner.nextLine();
             
             if(input.equals("n")) {
@@ -21,6 +21,9 @@ public class FileManager {
             }
             if(input.equals("w")) {
                 writing();
+            }
+            if(input.equals("d")) {
+                delete();
             }
             if(input.equals("r")) {
                 reading();
@@ -81,8 +84,19 @@ public class FileManager {
                 e.printStackTrace();
             }
         }
-        public static void reading() {
+        public static void delete() {
             Scanner scanner4 = new Scanner(System.in);
+            System.out.println("Enter file location(absolute location): ");
+            String dellocation = scanner4.nextLine();
+            File myObj = new File(dellocation);
+            if(myObj.delete()) {
+                System.out.println("File successfully deleted");
+            } else {
+                System.out.println("File cannot be deleted");
+            }
+        }
+        public static void reading() {
+            Scanner scanner5 = new Scanner(System.in);
             try {
                 System.out.println("Enter file location(absolute location): ");
                 String readlocation = scanner4.nextLine();
@@ -99,5 +113,4 @@ public class FileManager {
                 e.printStackTrace();
             }
         }
-    
 }
