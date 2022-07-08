@@ -105,8 +105,8 @@ public class FileManager {
                 while(myReader.hasNextLine()) {
                     String data = myReader.nextLine();
                     System.out.println(data);
-                    System.out.println("\nDone!");
                 }
+                System.out.println("\nDone!");
                 myReader.close();
             } catch(IOException e) {
                 System.out.println("An error occured");
